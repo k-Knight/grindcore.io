@@ -15,3 +15,7 @@ function displayFaded(msg, container) {
         $("<div>").addClass("failed-div faded").text(msg)
     );
 }
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register ('service-worker.js');
+}
