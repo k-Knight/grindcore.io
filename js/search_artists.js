@@ -29,7 +29,6 @@ function searchArtist() {
 window.onload = function() {
     var searchItem = getURLParameter("artistName");
     if (searchItem != null && searchItem.length > 0) {
-        searching = true;
         getArtistsByName(searchItem);
     }
     else {
@@ -39,6 +38,7 @@ window.onload = function() {
 
 function getArtistsByName(name) {
     displayLoading("Please wait. Searching...", "#artists-container");
+    searching = true;
     searchComplete = false;
     $.getJSON({
         url: base_url + "?method=artist.search&api_key=" + api_key + "&limit=250&format=json&artist=" + name,
