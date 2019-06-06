@@ -93,7 +93,6 @@ function confirmGrindcoreArtist(data, mbid, callback) {
             getArtistInfo(mbid);
         }
         else {
-            console.log({finished: finished, potential: potential});
             finished++;
             if (found == 0 && finished >= potential) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
