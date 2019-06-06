@@ -31,21 +31,20 @@ function notificationCallback(state) {
     }
 }
 
-$(document).ready(() => {
-    $("body").attr("onoffline", goOffline);
-    $("body").attr("ononline", goOnline);
-});
-
 window.addEventListener('online', goOnline)
 window.addEventListener('offline', goOffline)
+window.ononline = goOnline;
+window.onoffline = goOffline;
 
 function goOnline() {
     isOffline = false;
+    console.log("Applicatio in ONLINE mode");
 }
 
 function goOffline() {
     isOffline = true;
     showOfflineMessage();
+    console.log("Applicatio in OFFLINE mode");
 }
 
 function showOfflineMessage() {
