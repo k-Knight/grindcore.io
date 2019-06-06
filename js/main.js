@@ -49,7 +49,7 @@ function goOffline() {
 
 function showOfflineMessage() {
     try {
-        new Notification(
+        navigator.serviceWorker.getRegistration().then(reg => reg.showNotification((
             "Offline mode",
             {
                 badge: "img/offline.png",
@@ -57,7 +57,7 @@ function showOfflineMessage() {
                 tag: "offline",
                 body: "You are currently in the Offline mode. Searching is disabled."
             }
-        );
+        )));
     } catch (err) {
         console.log('Notification API error: ' + err);
     }
