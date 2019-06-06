@@ -14,6 +14,9 @@ function getArtists() {
         url: base_url + "?method=tag.gettopartists&tag=grindcore&api_key=" + api_key + "&limit=20&format=json",
         success: loadArtistsInfo,
         complete: (xhr, textStatus) => {
+            if (xhr.status == 0 || textStatus == "error") {
+                return;
+            }
             if (xhr.status != 200)
                 getArtists();
             else if (textStatus == "parsererror")
@@ -37,6 +40,9 @@ function getArtistInfo(mbid) {
         url: base_url + "?method=artist.getinfo&api_key=" + api_key + "&format=json&mbid=" + mbid,
         success: displayArtist,
         complete: (xhr, textStatus) => {
+            if (xhr.status == 0 || textStatus == "error") {
+                return;
+            }
             if (xhr.status != 200)
                 getArtistInfo(mbid);
             else if (textStatus == "parsererror")

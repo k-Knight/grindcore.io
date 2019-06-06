@@ -16,6 +16,7 @@ function getURLParameter(sParam) {
 }
 
 function searchArtist() {
+    showOfflineMessage();
     if (isOffline || !navigator.onLine) {
         showOfflineMessage();
         return;
@@ -42,6 +43,9 @@ function getArtistsByName(name) {
         url: base_url + "?method=artist.search&api_key=" + api_key + "&limit=250&format=json&artist=" + name,
         success: searchValidArtists,
         complete: (xhr, textStatus) => {
+            if (xhr.status == 0 || textStatus == "error") {
+                return;
+            }
             if (xhr.status != 200)
                 getArtistsByName(name);
             else if (textStatus == "parsererror")
@@ -78,6 +82,9 @@ function getArtistTags(mbid) {
         url: base_url + "?method=artist.getTopTags&api_key=" + api_key + "&format=json&mbid=" + mbid,
         success: (data) => { confirmGrindcoreArtist(data, mbid); },
         complete: (xhr, textStatus) => {
+            if (xhr.status == 0 || textStatus == "error") {
+                return;
+            }
             if (xhr.status != 200)
                 getArtistTags(mbid);
             else if (textStatus == "parsererror")
