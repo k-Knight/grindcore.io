@@ -32,9 +32,21 @@ function notificationCallback(state) {
 }
 
 $(document).ready(() => {
-    document.body.onoffline = () => { isOffline = true; showOfflineMessage(); };
-    document.body.ononline = () => { isOffline = false; };
+    $("body").attr("onoffline", goOffline);
+    $("body").attr("ononline", goOnline);
 });
+
+window.addEventListener('online', goOnline)
+window.addEventListener('offline', goOffline)
+
+function goOnline() {
+    isOffline = false;
+}
+
+function goOffline() {
+    isOffline = true;
+    showOfflineMessage();
+}
 
 function showOfflineMessage() {
     try {
