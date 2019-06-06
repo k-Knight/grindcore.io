@@ -354,6 +354,7 @@ body {
     width: 15em;
     text-align: right;
     font-size: 1em;
+    box-shadow: inset 0 0 7px #222;
 }
 
 .submit-input {
@@ -363,6 +364,17 @@ body {
     font-weight: bold;
     border: none;
     border-radius: 3px;
+    box-shadow: 0 0 10px #111;
+}
+
+.submit-input:hover {
+    background-color: #2D74B3;
+    box-shadow: 0 0 10px #002444;
+}
+
+.submit-input:active {
+    background-color: #2D74B3;
+    box-shadow: inset 0 0 7px #222;
 }
 
 .loading-div {

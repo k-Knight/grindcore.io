@@ -15,6 +15,32 @@ function getURLParameter(sParam) {
     }
 }
 
+function showOfflineMessage() {
+    try {
+        new Notification(
+            "Offline mode",
+            {
+                badge: "img/offline.png",
+                icon: "img/offline.png",
+                tag: "offline",
+                body: "You are currently in the Offline mode. Searching is disabled."
+            }
+        );
+    } catch (err) {
+        console.log('Notification API error: ' + err);
+    }
+}
+
+function searchArtist() {
+    if (!navigator.onLine) {
+        showOfflineMessage();
+        return;
+    }
+    if ($("#artist-name-term").val().length) {
+        $("#artist-search-form").submit();
+    }
+}
+
 window.onload = function() {
     var searchItem = getURLParameter("artistName");
     if (searchItem != null && searchItem != "") {
