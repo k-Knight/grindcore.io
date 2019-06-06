@@ -13,8 +13,10 @@ function getAlbumsInfo() {
     $.getJSON({
         url: base_url + "?method=tag.gettopalbums&tag=grindcore&api_key=" + api_key + "&limit=21&format=json",
         success: displayAlbums,
-        complete: (xhr) => {
+        complete: (xhr, textStatus) => {
             if (xhr.status != 200)
+                 getAlbumsInfo();
+            else if (textStatus == "parsererror")
                 getAlbumsInfo();
         }
     });

@@ -13,9 +13,11 @@ function getArtists() {
     $.getJSON({
         url: base_url + "?method=tag.gettopartists&tag=grindcore&api_key=" + api_key + "&limit=20&format=json",
         success: loadArtistsInfo,
-        complete: (xhr) => {
+        complete: (xhr, textStatus) => {
             if (xhr.status != 200)
-            getArtists();
+                getArtists();
+            else if (textStatus == "parsererror")
+                getArtists();
         }
     });
 }
@@ -34,9 +36,11 @@ function getArtistInfo(mbid) {
     $.getJSON({
         url: base_url + "?method=artist.getinfo&api_key=" + api_key + "&format=json&mbid=" + mbid,
         success: displayArtist,
-        complete: (xhr) => {
+        complete: (xhr, textStatus) => {
             if (xhr.status != 200)
-            getArtistInfo(mbid);
+                getArtistInfo(mbid);
+            else if (textStatus == "parsererror")
+                getArtistInfo(mbid);
         }
     });
 }

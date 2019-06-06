@@ -30,24 +30,17 @@ window.onload = function() {
 function getArtistsByName(name) {
     $.getJSON({
         url: base_url + "?method=artist.search&api_key=" + api_key + "&limit=250&format=json&artist=" + name,
-        success: (data) => searchValidArtists(data, () => { getArtistsByName(name); } ),
-        complete: ( xhr, textStatus, errorThrown) => {
+        success: searchValidArtists,
+        complete: (xhr, textStatus) => {
             if (xhr.status != 200)
                 getArtistsByName(name);
-            else if (textStatus == "parsererror") {
+            else if (textStatus == "parsererror")
                 getArtistsByName(name);
-            }
-            console.log({xhr: xhr, status: textStatus, error: errorThrown});
         }
     });
 }
 
-function searchValidArtists(data, callback) {
-    console.log({data: typeof data, callback: typeof callback, action: (typeof data != "object" && typeof callback == "function")});
-    if (typeof data != "object" && typeof callback == "function") {
-        callback();
-        return;
-    }
+function searchValidArtists(data) {
     try {
         var validArtists = data.results.artistmatches.artist.filter((artist) => { return artist.mbid != null && artist.mbid != ""; });
         for (var i = 0; i < validArtists.length; i++) {
@@ -73,19 +66,17 @@ function searchValidArtists(data, callback) {
 function getArtistTags(mbid) {
     $.getJSON({
         url: base_url + "?method=artist.getTopTags&api_key=" + api_key + "&format=json&mbid=" + mbid,
-        success: (data) => { confirmGrindcoreArtist(data, mbid, () => { getArtistTags(mbid); }); },
-        complete: (xhr) => {
+        success: (data) => { confirmGrindcoreArtist(data, mbid); },
+        complete: (xhr, textStatus) => {
             if (xhr.status != 200)
-            getArtistTags(mbid);
+                getArtistTags(mbid);
+            else if (textStatus == "parsererror")
+                getArtistTags(mbid);
         }
     });
 }
 
-function confirmGrindcoreArtist(data, mbid, callback) {
-    if (typeof data != "object" && typeof callback == "function") {
-        callback();
-        return;
-    }
+function confirmGrindcoreArtist(data, mbid) {
     try {
         grindcoreTags = data.toptags.tag.filter((tag) => {
             return tag.name.toUpperCase() == "grindcore".toUpperCase() ||
@@ -120,11 +111,7 @@ function getArtistInfo(mbid) {
     });
 }
 
-function displayArtistInfo(data, callback) {
-    if (typeof data != "object" && typeof callback == "function") {
-        callback();
-        return;
-    }
+function displayArtistInfo(data) {
     try {
         var element = $("<div>").addClass("artist-element").append([
             $("<section>").append(
