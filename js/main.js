@@ -1,5 +1,5 @@
 var api_key = "b67824da4cc7b16eb40d000f7c26a2c7";
-var base_url = "https://ws.audioscrobbler.com/2.0/";
+var base_url = "ws.audioscrobbler.com/2.0/";
 
 function displayLoading(msg, container) {
     $(container).empty();
