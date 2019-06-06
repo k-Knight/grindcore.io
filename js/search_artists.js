@@ -31,9 +31,10 @@ function getArtistsByName(name) {
     $.getJSON({
         url: base_url + "?method=artist.search&api_key=" + api_key + "&limit=250&format=json&artist=" + name,
         success: (data) => searchValidArtists(data, () => { getArtistsByName(name); } ),
-        complete: (xhr) => {
+        complete: ( xhr, textStatus, errorThrown) => {
             if (xhr.status != 200)
                 getArtistsByName(name);
+            console.log({xhr: xhr, status: textStatus, error: errorThrown});
         }
     });
 }
