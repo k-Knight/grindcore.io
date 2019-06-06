@@ -2,6 +2,7 @@ var searching = false;
 var finished = 0;
 var found = 0;
 var potential = 0;
+var searchComplete = true;
 
 function getURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
@@ -34,11 +35,11 @@ window.onload = function() {
     }
     else {
         displayFaded("Search grindcore artists by name.", "#artists-container");
-        notifyNothingFound();
     }
 }
 
 function getArtistsByName(name) {
+    searchComplete = false;
     $.getJSON({
         url: base_url + "?method=artist.search&api_key=" + api_key + "&limit=250&format=json&artist=" + name,
         success: searchValidArtists,
@@ -111,6 +112,10 @@ function confirmGrindcoreArtist(data, mbid) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
                 notifyNothingFound();
             }
+            if (finished >= potential * 0.9 && found > 0 && ! searchComplete) {
+                searchComplete = true;
+                notifySearchComplete();
+            }
         }
     } catch (err) {
         console.log(err);
@@ -126,6 +131,10 @@ function getArtistInfo(mbid) {
             if (found == 0 && finished >= potential) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
                 notifyNothingFound();
+            }
+            if (finished >= potential * 0.9 && found > 0 && !searchComplete) {
+                searchComplete = true;
+                notifySearchComplete();
             }
         }
     });
@@ -153,6 +162,10 @@ function displayArtistInfo(data) {
     } catch (err) {
         console.log(err);
     }
+}
+
+function notifySearchComplete() {
+    showNotificationMessage("Search complete", "Your search is complete. Managed to find band(s).", "img/search_complete.png");
 }
 
 function notifyNothingFound() {
