@@ -53,5 +53,5 @@
     "display": "standalone",
     "scope": "/",
     "theme_color": "#333333",
-    "orientation": "portrait"
+    "orientation": "landscape"
 }
