@@ -34,6 +34,9 @@ function getArtistsByName(name) {
         complete: ( xhr, textStatus, errorThrown) => {
             if (xhr.status != 200)
                 getArtistsByName(name);
+            else if (textStatus == "parsererror") {
+                getArtistsByName(name);
+            }
             console.log({xhr: xhr, status: textStatus, error: errorThrown});
         }
     });

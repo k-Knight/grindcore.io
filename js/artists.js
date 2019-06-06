@@ -12,7 +12,7 @@ window.onload = function () {
 function getArtists() {
     $.getJSON({
         url: base_url + "?method=tag.gettopartists&tag=grindcore&api_key=" + api_key + "&limit=20&format=json",
-        success: (data) => { loadArtistsInfo(data, () => { getArtists(); }); },
+        success: loadArtistsInfo,
         complete: (xhr) => {
             if (xhr.status != 200)
             getArtists();
@@ -20,11 +20,7 @@ function getArtists() {
     });
 }
 
-function loadArtistsInfo(data, callback) {
-    if (typeof data != "object" && typeof callback == "function") {
-        callback();
-        return;
-    }
+function loadArtistsInfo(data) {
     try {
         $.each( data.topartists.artist, ( key, val ) => {
             getArtistInfo(val.mbid);
@@ -37,7 +33,7 @@ function loadArtistsInfo(data, callback) {
 function getArtistInfo(mbid) {
     $.getJSON({
         url: base_url + "?method=artist.getinfo&api_key=" + api_key + "&format=json&mbid=" + mbid,
-        success: (data) => { displayArtist(data, () => { getArtistInfo(mbid); }); },
+        success: displayArtist,
         complete: (xhr) => {
             if (xhr.status != 200)
             getArtistInfo(mbid);
@@ -45,11 +41,7 @@ function getArtistInfo(mbid) {
     });
 }
 
-function displayArtist(data, callback) {
-    if (typeof data != "object" && typeof callback == "function") {
-        callback();
-        return;
-    }
+function displayArtist(data) {
     try {
         var element = $("<div>").addClass("artist-element").append([
             $("<section>").append(

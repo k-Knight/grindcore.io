@@ -12,7 +12,7 @@ window.onload = function () {
 function getAlbumsInfo() {
     $.getJSON({
         url: base_url + "?method=tag.gettopalbums&tag=grindcore&api_key=" + api_key + "&limit=21&format=json",
-        success: (data) => { displayAlbums(data, () => { getAlbumsInfo(); }); },
+        success: displayAlbums,
         complete: (xhr) => {
             if (xhr.status != 200)
                 getAlbumsInfo();
@@ -20,11 +20,7 @@ function getAlbumsInfo() {
     });
 }
 
-function displayAlbums(data, callback) {
-    if (typeof data != "object" && typeof callback == "function") {
-        callback();
-        return;
-    }
+function displayAlbums(data) {
     try {
         $.each( data.albums.album, ( key, val ) => {
             var element = $("<section>").addClass("album-element").append([
