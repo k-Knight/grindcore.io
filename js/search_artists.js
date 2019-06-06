@@ -39,6 +39,7 @@ function getArtistsByName(name) {
 }
 
 function searchValidArtists(data, callback) {
+    console.log({data: typeof data, callback: typeof callback, action: (typeof data != "object" && typeof callback == "function")});
     if (typeof data != "object" && typeof callback == "function") {
         callback();
         return;
