@@ -32,6 +32,8 @@ function showOfflineMessage() {
 }
 
 function searchArtist() {
+    console.log("search clicked");
+    console.log(navigator.onLine);
     if (!navigator.onLine) {
         showOfflineMessage();
         return;
@@ -42,8 +44,9 @@ function searchArtist() {
 }
 
 window.onload = function() {
+    console.log("window loaded");
     var searchItem = getURLParameter("artistName");
-    if (searchItem != null && searchItem != "") {
+    if (searchItem != null && searchItem.length > 0) {
         searching = true;
         displayLoading("Please wait. Searching...", "#artists-container");
         getArtistsByName(searchItem);
