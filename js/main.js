@@ -30,21 +30,28 @@ if ('showNotification' in ServiceWorkerRegistration.prototype) {
             navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
                 serviceWorkerRegistration.pushManager.getSubscription().then((subscription) => {
                     subscribeToPush();
-
-                    //pushEnabled = true;
                 }).catch(function(err) {
                     console.warn('Error during getSubscription()', err);
                 });
             });
             console.log("Push notifications are available");
         }
+        else {
+            console.log("Push notifications are NOT available");
+        }
     }
+    else {
+        console.log("Push notifications are NOT available");
+    }
+}
+else {
+    console.log("Push notifications are NOT available");
 }
 
 function subscribeToPush() {
   navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
     serviceWorkerRegistration.pushManager.subscribe().then((subscription) => {
-        // The subscription was successful
+        console.log("Push notifications are ENABLED");
         pushEnabled = true;
     }).catch((e) => {
         if (Notification.permission === 'denied') {
