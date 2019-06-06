@@ -16,7 +16,6 @@ function getURLParameter(sParam) {
 }
 
 function searchArtist() {
-    showOfflineMessage();
     if (isOffline || !navigator.onLine) {
         showOfflineMessage();
         return;
@@ -35,6 +34,7 @@ window.onload = function() {
     }
     else {
         displayFaded("Search grindcore artists by name.", "#artists-container");
+        notifyNothingFound();
     }
 }
 
@@ -67,6 +67,7 @@ function searchValidArtists(data) {
         }
         if (validArtists.length == 0) {
             displayFaded("Sorry. No artists were found.", "#artists-container");
+            notifyNothingFound();
         }
         $.each( validArtists, function( key, val ) {
             potential = validArtists.length;
@@ -108,6 +109,7 @@ function confirmGrindcoreArtist(data, mbid) {
             finished++;
             if (found == 0 && finished >= potential) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
+                notifyNothingFound();
             }
         }
     } catch (err) {
@@ -123,6 +125,7 @@ function getArtistInfo(mbid) {
             finished++;
             if (found == 0 && finished >= potential) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
+                notifyNothingFound();
             }
         }
     });
@@ -150,4 +153,8 @@ function displayArtistInfo(data) {
     } catch (err) {
         console.log(err);
     }
+}
+
+function notifyNothingFound() {
+    showNotificationMessage("Nothing found", "No gridcore artists were found with that name.", "img/nothing_found.png");
 }

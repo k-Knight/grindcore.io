@@ -15,6 +15,7 @@ const filesToCache = [
     "img/loading.gif",
     "img/np_scum.png",
     "img/offline.png",
+    "img/nothing_found.png",
     "img/icons/icon_16.png",
     "img/icons/icon_24.png",
     "img/icons/icon_32.png",

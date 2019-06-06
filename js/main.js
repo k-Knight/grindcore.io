@@ -62,3 +62,18 @@ function showOfflineMessage() {
         console.log('Notification API error: ' + err);
     }
 }
+
+function showNotificationMessage(title, body, image) {
+    try {
+        navigator.serviceWorker.getRegistration().then(reg => reg.showNotification(
+            title,
+            {
+                badge: image,
+                icon: image,
+                body: body
+            }
+        ));
+    } catch (err) {
+        console.log('Notification API error: ' + err);
+    }
+}
