@@ -1,0 +1,396 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: #def;
+    background: #333333;
+    font-size: 1em;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    line-height: 1.4em;
+    height: 100%;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #456;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio, canvas, iframe, img, svg, video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.site-header, .site-footer {
+    width: 100%;
+    margin: 0px;
+}
+
+.site-header {
+    background: linear-gradient(to right, #2D7C94 , #6B2D94);
+    padding: 1.25em;
+    font-size: 1.25em;
+}
+
+.site-header * {
+    display: inline-block;
+}
+
+.site-footer {
+    background: #3C454F;
+    text-align: center;
+    padding: 1em;
+    margin-top: 1.5em;
+}
+
+.content {
+    background: #222222;
+    border: 0.1em solid #2a2a2a;
+    border-radius: 0.5em;
+    padding: 1em 1.5em 1em;
+    width: 70%;
+    margin: auto;
+    margin-bottom: auto;
+    margin-top: 1.5em;
+}
+
+.faded {
+    color: #6f7880;
+}
+
+.horizontal-nav * {
+    display: inline-block;
+}
+
+.horizontal-nav > ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.horizontal-nav > ul > li:not(:last-child) {
+    padding-right: 0.75em;
+    border-right: 0.1em solid #203840;
+}
+.horizontal-nav > ul > li:not(:first-child) {
+    padding-left: 0.75em;
+}
+
+q {
+    display: block;
+    margin: 0.5em 0 0.5em;
+    background: #24282c;
+    padding: 0.5em;
+    padding-left: 1.5em;
+    border-left: 0.25em solid #306070;
+}
+
+header a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+article a {
+    color: #22bbff;
+    text-decoration: inherit;
+}
+
+.aside-float-right {
+    float: right;
+    width: 20em;
+    position: relative;
+    padding: 1em;
+}
+
+.aside-float-right figure {
+    padding: 0;
+    margin: 0;
+}
+
+.aside-float-right img {
+    width: 18em;
+}
+
+.aside-float-right figcaption {
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.horizontal-nav {
+    text-align: center;
+    width: 40%;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+
+.home-link {
+    width: 30%;
+    float: left;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.header-description {
+    width: 30%;
+    float: left;
+    text-align: right;
+    font-size: 0.8em;
+}
+
+@media only screen and (max-width: 80em) {
+    .content {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 56em) {
+    .horizontal-nav, .home-link, .header-description {
+        width:100%;
+    }
+    .horizontal-nav, .home-link {
+        margin-bottom: 1.5em;
+    }
+    .horizontal-nav {
+        padding: 0.75em;
+        background: rgba(183, 207, 230, 0.25);
+    }
+    .aside-float-right {
+        position: static;
+        display: block;
+        float: none;
+        margin: auto;
+    }
+    .content {
+        width: 90%;
+    }
+}
+
+.album-element {
+    width: 33%;
+    padding: 0.5em;
+    font-size: 1.0em;
+}
+
+.album-element {
+    display: inline-block;
+}
+
+.info-element-img {
+    width: 7em;
+    max-height: 7em;
+}
+
+.info-element-head {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.info-element-faded {
+    color: #6f7880;
+}
+
+#top-albums-container > * {
+    display: inline-block;
+}
+
+.album-info {
+    width: 100%;
+    background: #333333;
+    padding: 0.5em;
+    border-radius: 0.25em;
+}
+
+.album-info > * {
+    display: inline-block;
+}
+
+.album-info > table {
+    margin-top: 1em;
+    float: right;
+    width: calc(100% - 7em);
+}
+
+.album-info > table td {
+    vertical-align: top;
+}
+
+.album-info > table td > div {
+    max-height: 3em;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 90em) {
+    .album-element {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 56em) {
+    .album-element {
+        width: 100%;
+    }
+}
+
+.artit-info div {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.artit-info .info-element-faded {
+    margin-right: 1em;
+}
+
+.artist-element {
+    padding: 0.5em;
+    width: 100%;
+}
+
+.artist-element > section {
+    width: 100%;
+    background: #333333;
+    padding: 0.5em;
+    border-radius: 0.25em;
+}
+
+.artist-element > section > * {
+    margin: 0.5em;
+}
+
+.artist-element > section > h3 {
+    margin-left: 0.5em;
+}
+
+.artist-element > section > div {
+    margin-left: 2em;
+}
+
+.search-section > * {
+    display: inline-block;
+}
+
+.text-input {
+    color: #bbddff;
+    background: #444444;
+    border: none;
+    padding: 0.5em;
+    border-radius: 3px;
+    margin-left: 3.5em;
+    margin-right: 1.0em;
+    width: 15em;
+    text-align: right;
+    font-size: 1em;
+}
+
+.submit-input {
+    color: #bbddff;
+    background: #2B679C;
+    padding: 0.5em 1em 0.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+}
+
+.loading-div {
+    width: 21em;
+    margin: 5em auto 5em;
+}
+
+.loading-div * {
+    display: inline-block;
+    font-size: 1.25em;
+}
+
+.loading-div img {
+    width: 4em;
+    margin-right: 1em;
+}
+
+.failed-div {
+    width: 16em;
+    margin: 5.45em auto 5.45em;
+    font-size: 1.25em;
+}
+
+@media only screen and (max-width: 60em) {
+    .search-section > * {
+        display: block;
+    }
+    .search-section > form {
+        text-align: center;
+    }
+    .text-input {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 45em) {
+    .search-section * {
+        display: block;
+        margin: 1em auto 1em;
+        width: 100%;
+    }
+    .search-section > form {
+        text-align: center;
+    }
+}

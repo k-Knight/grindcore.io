@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Search Grindcore</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <!--link rel="stylesheet" href="css/boilerplate.css"-->
+  <link rel="stylesheet" href="css/kap_style.css">
+
+  <link rel="icon" href="img/grind_mini.png">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/search_artists.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "Search Grindcore",
+      "url": "http://artist_search.html",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://artist_search.html?artistName={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
+  <header class="site-header">
+    <a class="home-link" href="index.html">
+      <img style="width: 3.25em; margin: -1em; margin-left: -0.75em; margin-right: 0.25em;" src='img/grind_logo.png' alt='Site and genre logo'/>
+      <div style="font-weight: bold;"><b>In Grind we Crust</b></div>
+    </a>
+    <nav class="horizontal-nav">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="top_albums.html">ALBUMS</a></li>
+        <li><a href="top_artists.html">ARTISTS</a></li>
+      </ul>
+    </nav>
+    <div class="header-description">exploring Grindcore music genre</div>
+  </header>
+
+  <article class="content">
+    <section class="search-section">
+      <h3>Search grindcore artists:</h3>
+      <form action="#">
+        <input class="text-input" type="text" name="artistName">
+        <input class="submit-input" type="submit" value="Search">
+      </form>
+    </section>
+    <hr/>
+    <div id="artists-container"></div>
+  </article>
+
+  <footer class="site-footer">
+    <p><b>Assignment 2</b> in subject <b>Current trends in Web</b></p>
+    <p class="faded">Done by k-Knight</p>
+  </footer>
+
+</body>
+
+</html>
