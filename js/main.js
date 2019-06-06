@@ -25,7 +25,6 @@ if ('serviceWorker' in navigator) {
 }
 
 if ('showNotification' in ServiceWorkerRegistration.prototype) {
-    if (Notification.permission === 'denied') {
         if ('PushManager' in window) {
             navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
                 serviceWorkerRegistration.pushManager.getSubscription().then((subscription) => {
@@ -37,15 +36,11 @@ if ('showNotification' in ServiceWorkerRegistration.prototype) {
             console.log("Push notifications are available");
         }
         else {
-            console.log("Push notifications are NOT available");
+            console.log("Push notifications are NOT available 2");
         }
-    }
-    else {
-        console.log("Push notifications are NOT available");
-    }
 }
 else {
-    console.log("Push notifications are NOT available");
+    console.log("Push notifications are NOT available 1");
 }
 
 function subscribeToPush() {
