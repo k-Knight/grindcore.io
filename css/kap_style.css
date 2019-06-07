@@ -273,6 +273,7 @@ body {
     background: #333333;
     padding: 0.5em;
     border-radius: 0.25em;
+    height: 8em;
 }
 
 .album-info > * {
