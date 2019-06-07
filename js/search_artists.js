@@ -39,6 +39,7 @@ window.onload = function() {
 function getArtistsByName(name) {
     displayLoading("Please wait. Searching...", "#artists-container");
     searching = true;
+    $("#artist-search-btn").attr('disabled','disabled');
     searchComplete = false;
     $.getJSON({
         url: base_url + "?method=artist.search&api_key=" + api_key + "&limit=250&format=json&artist=" + name,
@@ -156,6 +157,7 @@ function displayArtistInfo(data) {
         if (searching == true) {
             searching = false;
             $("#artists-container").empty();
+            $("#artist-search-btn").removeAttr('disabled');
         }
         $("#artists-container").append(element);
         found++;
