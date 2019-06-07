@@ -38,6 +38,7 @@ const pagesToCache = [
 ];
 
 self.addEventListener("install", (event) => {
+    console.log("service worker registration");
     event.waitUntil(caches.open(cacheName).then((cache) => {
         fetch("/grindcore.io/manifest.json").then((response) => {
             response.json()
