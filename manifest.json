@@ -51,7 +51,7 @@
     "start_url": "https://k-knight.github.io/grindcore.io",
     "background_color": "#333333",
     "display": "standalone",
-    "scope": "/",
+    "scope": "https://k-knight.github.io/grindcore.io",
     "theme_color": "#333333",
     "orientation": "landscape"
 }
