@@ -99,7 +99,7 @@ textarea {
 
 .content {
     background: #222222;
-    border: 2px solid #2a2a2a;
+    box-shadow: 0px 0px 10px 10px #2b2b2b;
     border-radius: 7px;
     padding: 1em 1.5em 1em;
     width: 70%;
