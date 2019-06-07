@@ -70,6 +70,7 @@ function searchValidArtists(data) {
         if (validArtists.length == 0) {
             displayFaded("Sorry. No artists were found.", "#artists-container");
             notifyNothingFound();
+            $("#artist-search-btn").removeAttr('disabled');
         }
         $.each( validArtists, function( key, val ) {
             potential = validArtists.length;
@@ -112,10 +113,12 @@ function confirmGrindcoreArtist(data, mbid) {
             if (found == 0 && finished >= potential) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
                 notifyNothingFound();
+                $("#artist-search-btn").removeAttr('disabled');
             }
             if (finished >= potential * 0.9 && found > 0 && ! searchComplete) {
                 searchComplete = true;
                 notifySearchComplete();
+                $("#artist-search-btn").removeAttr('disabled');
             }
         }
     } catch (err) {
@@ -132,10 +135,12 @@ function getArtistInfo(mbid) {
             if (found == 0 && finished >= potential) {
                 displayFaded("Sorry. No artists were found.", "#artists-container");
                 notifyNothingFound();
+                $("#artist-search-btn").removeAttr('disabled');
             }
             if (finished >= potential * 0.9 && found > 0 && !searchComplete) {
                 searchComplete = true;
                 notifySearchComplete();
+                $("#artist-search-btn").removeAttr('disabled');
             }
         }
     });

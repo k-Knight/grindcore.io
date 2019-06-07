@@ -378,6 +378,16 @@ body {
     box-shadow: 0 0 10px #002444, inset 0 0 7px #222;
 }
 
+.submit-input:disabled, .submit-input:disabled:hover, .submit-input:disabled:active {
+    color: #94aec7;
+    background: rgb(54, 99, 138);
+    padding: 0.5em 1em 0.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #111, inset 0 0 3px #222;
+}
+
 .loading-div {
     width: 21em;
     margin: 5em auto 5em;
