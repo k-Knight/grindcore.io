@@ -26,7 +26,6 @@ const filesToCache = [
     "img/icons/icon_128.png",
     "img/icons/icon_192.png",
     "img/icons/icon_256.png",
-    "service-worker.js",
     "manifest.json"
 ];
 
