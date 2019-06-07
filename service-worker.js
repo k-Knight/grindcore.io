@@ -26,7 +26,8 @@ const filesToCache = [
     "img/icons/icon_128.png",
     "img/icons/icon_192.png",
     "img/icons/icon_256.png",
-    "/grindcore.io/manifest.json"
+    "/grindcore.io/manifest.json",
+    "/grindcore.io/service-worker.js"
 ];
 
 const pagesToCache = [
