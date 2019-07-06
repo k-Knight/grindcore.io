@@ -290,9 +290,10 @@ body {
 }
 
 .album-info > table {
-    margin-top: 1em;
+    margin-top: 0.5em;
     float: right;
-    width: calc(100% - 7em);
+    width: calc(100% - 7.5em);
+    border-spacing: 0.75em 0;
 }
 
 .album-info > table td {
@@ -300,17 +301,17 @@ body {
 }
 
 .album-info > table td > div {
-    max-height: 3em;
+    max-height: 3.0em;
     overflow: hidden;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
     .album-element {
         width: 50%;
     }
 }
 
-@media only screen and (max-width: 56em) {
+@media only screen and (max-width: 65em) {
     .album-element {
         width: 100%;
     }
@@ -334,6 +335,7 @@ body {
     width: 100%;
     background: #333333;
     padding: 0.5em;
+    padding-right: 1em;
     border-radius: 0.25em;
 }
 
