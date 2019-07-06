@@ -21,11 +21,11 @@ hr {
 }
 
 article h2 {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
 }
 
 article h3 {
-    margin: 1.5em 0 1.5em;
+    margin: 2em 0 1em;
 }
 
 audio, canvas, iframe, img, svg, video {
@@ -159,9 +159,9 @@ article a {
 
 .aside-float-right {
     float: right;
-    width: 19em;
+    width: 20em;
     position: relative;
-    padding: 1em 0em 1em 1em;
+    padding: 2em 0em 2em 2em;
 }
 
 .aside-float-right figure {
@@ -171,6 +171,7 @@ article a {
 
 .aside-float-right img {
     width: 18em;
+    margin: 0 0 1em;
 }
 
 .aside-float-right figcaption {
