@@ -11,7 +11,7 @@ window.onload = function () {
 
 function getAlbumsInfo() {
     $.getJSON({
-        url: base_url + "?method=tag.gettopalbums&tag=grindcore&api_key=" + api_key + "&limit=21&format=json",
+        url: base_url + "?method=tag.gettopalbums&tag=grindcore&api_key=" + api_key + "&limit=30&format=json",
         success: displayAlbums,
         complete: (xhr, textStatus) => {
             if (xhr.status == 0 || textStatus == "error") {

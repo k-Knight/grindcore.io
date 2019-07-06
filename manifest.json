@@ -53,5 +53,5 @@
     "display": "standalone",
     "scope": "https://k-knight.github.io/grindcore.io",
     "theme_color": "#333333",
-    "orientation": "landscape"
+    "orientation": "portrait"
 }

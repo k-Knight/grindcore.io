@@ -11,7 +11,7 @@ window.onload = function () {
 
 function getArtists() {
     $.getJSON({
-        url: base_url + "?method=tag.gettopartists&tag=grindcore&api_key=" + api_key + "&limit=20&format=json",
+        url: base_url + "?method=tag.gettopartists&tag=grindcore&api_key=" + api_key + "&limit=25&format=json",
         success: loadArtistsInfo,
         complete: (xhr, textStatus) => {
             if (xhr.status == 0 || textStatus == "error") {
