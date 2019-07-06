@@ -151,9 +151,9 @@ article a {
 
 .aside-float-right {
     float: right;
-    width: 20em;
+    width: 19em;
     position: relative;
-    padding: 1em;
+    padding: 1em 0em 1em 1em;
 }
 
 .aside-float-right figure {
