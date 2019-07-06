@@ -446,3 +446,7 @@ body {
 article p {
     text-align: justify;
 }
+
+.search-section h3 {
+    margin: 1em 0 1em;
+}
