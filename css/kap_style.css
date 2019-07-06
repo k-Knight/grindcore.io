@@ -142,8 +142,7 @@ q {
     display: block;
     margin: 0.5em 0 0.5em;
     background: #24282c;
-    padding: 0.5em;
-    padding-left: 1.5em;
+    padding: 0.5em 1em 0.5em;
     border-left: 0.25em solid #306070;
 }
 
@@ -456,6 +455,10 @@ body {
 }
 
 article p {
+    text-align: justify;
+}
+
+article q {
     text-align: justify;
 }
 
